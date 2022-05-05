@@ -10,18 +10,10 @@
                 <h2 class="ml-4">Want to participate?</h2>
             </header>
 
-            <div class="mt-6">
-                                    <textarea name="body"
-                                              class="w-full text-sm focus:outline-none focus:ring p-6"
-                                              cols="30" rows="5"
-                                              placeholder="Quick, thing something to say!" required></textarea>
 
-                @error('body')
-                <span class="text-xs text-red-500">{{ $message }}</span>
-                @enderror
-            </div>
+            <x-form.textarea name="body"></x-form.textarea>
             <div class="flex justify-end border-t border-gray-200 pt-6 mt-6">
-                <x-submit-button>POST</x-submit-button>
+                <x-form.button>POST</x-form.button>
             </div>
         </form>
     </x-panel>

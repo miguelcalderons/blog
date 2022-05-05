@@ -5,71 +5,12 @@
             <form method="post" class="mt-10" action="/register">
                 @csrf
 
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="name">Name</label>
-                    <input class="border border-gray-400 p-2 w-full"
-                           type="text"
-                           name="name"
-                           value="{{ old('name') }}"
-                           id="name"
-                           required/>
+                <x-form.input name="name"></x-form.input>
+                <x-form.input name="username"></x-form.input>
+                <x-form.input name="email" type="email"></x-form.input>
+                <x-form.input name="password" type="password" autocomplete="new-password" ></x-form.input>
 
-                    @error('name')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
-                </div>
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="username">Username</label>
-                    <input class="border border-gray-400 p-2 w-full"
-                           type="text"
-                           name="username"
-                           value="{{ old('username') }}"
-                           id="username"
-                           required/>
-
-                    @error('username')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
-                </div>
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="email">Email
-                        Address</label>
-                    <input class="border border-gray-400 p-2 w-full"
-                           type="email"
-                           name="email"
-                           value="{{ old('email') }}"
-                           id="email"
-                           required/>
-
-                    @error('email')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
-                </div>
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700" for="password">Password</label>
-                    <input class="border border-gray-400 p-2 w-full"
-                           type="password"
-                           name="password"
-                           id="password"
-                           required/>
-
-                    @error('password')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
-                </div>
-                <div class="mb-6">
-                    <button type="submit"
-                            class="bg-blue-600 text-white rounded py-2 px-4 hover:bg-blue-500">Submit
-                    </button>
-                </div>
-
-                @if($errors->any())
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li class="text-red-500 text-xs">{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                @endif
+                <x-form.button>Submit</x-form.button>
             </form>
         </main>
     </section>
